@@ -135,8 +135,9 @@ The existing system, known as the rule-based model, generates excessive false po
   
 </figure>
 
-##### More EDA plots
+##### Correlation between features
 
+###### Correlation between types of claims
 <figure markdown>
 
   ![Class Imbalance](pics/heatmap.png)
@@ -167,6 +168,15 @@ shows that they are the most common illness out there.
 </div>
 
 
+
+<figure markdown>
+
+  ![heatmap](pics/ethnoculture.png)
+  <figcaption> The plot above represents the diversity and representation of different ethnic groups present by the target  feature `simplified_md_disposition` in the data.</figcaption>
+</figure>
+
+
+==The aforementioned plots were extracted during the exploratory data analysis (EDA) conducted on the dataset. The complete EDA can be accessed [#EDA](here)==
 ## Methods and Algorithms
 
 ### Methods
