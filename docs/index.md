@@ -18,8 +18,8 @@ Our primary objective is to create an improved model that outperforms the curren
 
 ## Explanatory Data Analysis
 
-
 #### Preview
+
 
 To start off, we read in our data along with the data dictionaty both located in the data folder :
 
@@ -30,7 +30,39 @@ data dict = pd.read excel ('data/HEiDi-ML-dictionary updated.xsx')
 
 ```
 
+#### Data information
+
+```
+data.info()
+```
+<figure markdown>
+
+  ![info result](pics/info.png)
+  <figcaption> Data Information.</figcaption>
+</figure>
+
+Our dataframe is relatively large with 33,597 rows and 307 columns. It contains a mix of numerical and object columns, with
+a majority being numerical(float and integer) columns.
+
+#### Data Description
+
+```
+data.describe()
+```
+<figure markdown>
+
+  ![info description](pics/describe.png)
+  <figcaption> Data Information.</figcaption>
+</figure>
+
+As seen in the result above, the count of non-null values for several column is significantly lower than the total number of
+rows in our data. This indicates a lot of missing values in our data.
+
+#### Data Pattern and trends
+
 <div style="text-align: justify;">
+
+
 
 We started by studying the data to understand it better and find any noticeable patterns or trends. We looked at outliers and missing values and found that many variables had imbalances and missing values. Our analysis included 308 columns, which we divided into three main categories: Numeric, Binary, and Categorical.
 
@@ -58,7 +90,7 @@ for col in data.columns:
 
 
 
-#### Missing values 
+##### Missing values 
 
 <div style="text-align: justify;">
 We discovered that a considerable number of columns, such as `NAVInformed` and `NSInformed`, contained missing data exceeding 95%. Consequently, we made the decision to exclude these columns due to their limited potential to offer valuable insights in our predictive analysis and the possibility of introducing unnecessary noise.
@@ -77,7 +109,7 @@ This image indicates that there is a widespread presence of missing values, repr
 
 </div>
 
-#### The Problem of HEiDi Triage
+##### The Problem of HEiDi Triage
 
 <div style="text-align: justify;">
 The existing system, known as the rule-based model, generates excessive false positives, leading to an unnecessary influx of people in the emergency department. The diagram presented illustrates the distribution of the target column, `simplified_md_disposition`, categorized according to the KBDisposition:
@@ -90,7 +122,7 @@ The existing system, known as the rule-based model, generates excessive false po
   
 </figure>
 
-#### Class Imbalance
+##### Class Imbalance
 
 <div style="text-align: justify;">
  We also discovered a class imbalance that resulted in the "try home treatment" category being underrepresented. We needed to address this class imbalance to prevent any potential biases in our model.
@@ -103,7 +135,7 @@ The existing system, known as the rule-based model, generates excessive false po
   
 </figure>
 
-#### More EDA plots
+##### More EDA plots
 
 <figure markdown>
 
@@ -411,7 +443,7 @@ def clean_heidi_visit_col(data):
 
 
 
-#### Grouping anf cleaning Script
+#### Preprocessing heidi_visit Script
 
 The following is a docstring of the script [`helper.py`](#)
 ```
@@ -572,13 +604,6 @@ def multi_label_binarizer(data, col_name):
 
 ```
 
-#### Drop Column Script
-
-#### Data Splitting Script 
-
-#### Preprocessing heidi_visit Script
-
-
 ### Imputation Techniques 
 
 <div style="text-align: justify;">
@@ -598,6 +623,39 @@ The list of columns with their explantions can be found below:
 
 ### Dashboard
 
-## Recommendations
+You can locate the dashboards and its corresponding documentation [`here`](#)
 
 ## Future Scope
+
+
+We believe that the next phase of this project could prioritize the enhancement of feature engineering and selection
+methods, particularly with a ficus on DIN numbers and ICD codes. By making significant improvements in these areas, the
+project can unlock more valuable information from the data and achieve notably improved accuracy in its analyses.
+
+
+
+==Feature Selection:== Despite the team's efforts in conducting feature selection within the given time constraints, we strongly
+believe that there is further scope for carefully choosing the most essential features. By employing this approach, we can
+effectively decrease the data size that needs to be processed. Consequently, this will accelerate the analysis process and
+optimize the utilization of computational resources.
+
+
+
+==Using Multiple Models:== Another area for improvement in the analysis is enhancing the accuracy. One approach to achieve
+this is by exploring the integration of multiple models. By leveraging the strengths of different models and combining their
+unique capabilities, we can obtain superior results. This approach is similar to teamwork, where each model brings its own
+valuable insights. however, it is important to remember that using multiple models requires more computational resourses.
+therefore, it is crucial to carefully consider the available resourses before implementing this approach.
+
+
+==Making the Most of Patient Notes:== We believe that accessing patient notes can be a game-changer in our analysis. These
+notes contain detailed information that can greatly enhance our understanding of medical conditions and patient outcomes.
+By using language processing techniques, we can unlock the power of patient notes. This helps us extract important insights
+from written information leading to better predictions and improved performance.
+
+
+
+In sum, to futher improve the analysis, we believe that there is need to keep exploring and refining the methods. By focusing
+on DIN numbers and ICD codes, using feature selection, trying multiple models, and leveraging patient notes with language
+processing, we can achiev more accurate and insighful results. These adancements have the potential to transform the scope
+of this project, leading to better care and outcomes for patients.
